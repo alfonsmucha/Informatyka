@@ -45,7 +45,7 @@ void search_book(double* cena_ks, Ksiegarnia* table_)
 {
     for (int i = 0; i < TABLE_SIZE; i++)
     {
-        if (table_[i].cena > *cena_ks) print_book(i, table_);
+        if (table_[i].cena > *cena_ks) print_book(i, table_);               // * wskazuje na zmienną spod podanego adresu
     }
 }
 
@@ -80,10 +80,10 @@ int main()
         case 2:
             cout << "Podaj cene minimalna:";
             cin >> cena_ks;
-            search_book(&cena_ks, ksiazki);
+            search_book(&cena_ks, ksiazki);                                   // & podaje adres zmiennej
             break;
         case 3:
-            cout << "Podaj wydawnictwo:";
+            cout << "Podaj wydawnictwo:";                                       
             cin >> wydawnictwo_ks;
             search_book(&wydawnictwo_ks, ksiazki);
             break;
