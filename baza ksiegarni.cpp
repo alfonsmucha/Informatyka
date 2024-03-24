@@ -8,11 +8,11 @@ struct Ksiegarnia
     string tytul;
     string autor;
     int rok_wyd;
-    string wydawnictwo;
+    string wydawnictwo; 
     double cena;
 };
 
-Ksiegarnia ksiazki[TABLE_SIZE] =
+Ksiegarnia ksiazki[TABLE_SIZE] =  //deklaracja tabeli o wielkosci TABLE_SIZE z danymi typu Ksiegarnia
 {
     { "Tytul1", "autor1", 1925, "Helion1", 23.54 },
     { "Tytul2", "autor2", 1926, "Helion2", 24.54 },
@@ -25,10 +25,10 @@ Ksiegarnia ksiazki[TABLE_SIZE] =
 
 int wybor = 0;
 int rok = 0;
-double cena_ks = 0;
+double cena_ks = 0;                      //zmienne, ktore przechowywuja dane
 string wydawnictwo_ks = "";
 
-void print_book(int pozycja, Ksiegarnia* table)
+void print_book(int pozycja, Ksiegarnia* table) //wyswietla na ekranie, nie wnosi nic do programu, drukuje ( nie zwraca zadnej wartosci ) 
 {
     cout << "Tytul: " << table[pozycja].tytul << "  Autor: " << table[pozycja].autor << "   Rok: " << table[pozycja].rok_wyd << "   Wydawnictwo: " << table[pozycja].wydawnictwo << "   Cena: " << table[pozycja].cena << endl;
 }
@@ -60,7 +60,7 @@ void search_book(string* wyd, Ksiegarnia* table_)
 int main()
 {
     cout << "Witaj w ksiegarni" << endl;
-    while (1)
+    while (1) //nieskonczona pętla, chyba ze trafi na return 
     {
         cout << "Po jakiej kategorii chcialbys wyszukac ksiazke:" << endl;
         cout << "1. Rok wydania" << endl;
@@ -68,14 +68,14 @@ int main()
         cout << "3. Wydawnictwo" << endl;
         cout << "0. Wyjscie" << endl;
 
-        cin >> wybor;
+        cin >> wybor; //oczekuje wyboru
 
-        switch (wybor)
+        switch (wybor)  //sprawdzenie wartosci wpisanej 
         {
         case 1:
             cout << "Podaj od jakiego roku chcesz zobaczyc ksiazki:";
             cin >> rok;
-            search_book(&rok, ksiazki);
+            search_book(&rok, ksiazki); //wyszukiwanie wedlug roku i drukowanie
             break;
         case 2:
             cout << "Podaj cene minimalna:";
@@ -88,8 +88,8 @@ int main()
             search_book(&wydawnictwo_ks, ksiazki);
             break;
         case 0:
-            return 0;
-        default:
+            return 0;  //wyjscie z programu z kodem 0
+        default: //wszystkie inne liczby, nie przyjmie ich
 
             break;
         }
