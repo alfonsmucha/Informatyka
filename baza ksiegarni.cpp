@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+ #define TABLE_SIZE 7
+
 struct ksiegarnia
 {
 	string tytul;
@@ -10,7 +12,7 @@ struct ksiegarnia
 	string cena;
 };
 
-Ksiegarnia ksiazki[ 7 ] =
+Ksiegarnia ksiazki[TABLE_SIZE] =
 {
     { "Tytul1", "autor1", 1925, "Helion1", 23.54 },
     { "Tytul2", "autor2", 1926, "Helion2", 24.54 },
@@ -26,9 +28,9 @@ int rok = 0;
 double cena_ks = 0;
 string wydawnictwo_ks = "";
 
-void print_book(int pozycja, ksiegarnia *table)
+void print_book(int pozycja, Ksiegarnia *table)
 {
-	cout << "Tytul: "<< table[pozycja].tytul <<" Autor: "<< table[pozycja].autor << "Rok: "<< table[pozycja].rok_wyd <<"Wydawnictwo: "<<table[pozycja].wydawnictwo<< "Cena:"<< table[pozycja].cena<<endl;
+	cout << "Tytul: "<< table[pozycja].tytul <<" Autor: "<< table[pozycja].autor << "Rok: "<< table[pozycja].rok_wyd <<"Wydawnictwo: "<<table[pozycja].wydawnictwo<< "Cena:"<< table[pozycja].cena<< endl;
 }
 
 void search_book(int*rok_wyd, Ksiegarnia *table_)
@@ -60,6 +62,41 @@ int main()
 	cout << "Witaj w ksiegarni" << endl;
 	while(1)
 	{
-		cout <<
+    cout << "Po jakiej kategorii chcialbys wyszukac ksiazke:" << endl;
+    cout << "1. Rok wydania" << endl;
+    cout << "2. Cena" << endl;
+    cout << "3. Wydawnictwo" << endl;
+    cout << "0. Wyjscie" << endl;
+    
+    cin >> wybor;
+    
+    switch ( wybor)
+    {
+        case 1:
+            cout << "Podaj od jakiego roku chcesz zobaczyc ksiazki:";
+            cin >> rok;
+            search_book(&rok, ksiazki);
+            break;
+        case 2:
+            cout << "Podaj cene minimalna:";
+            cin >> cena_ks;
+            search_book(&cena_ks, ksiazki);
+            break;
+        case 3: 
+            cout << "Podaj wydawnictwo:";
+            cin >> wydawnictwo_ks;
+            search_book(&wydawnictwo_ks, ksiazki);
+            break;
+        case 0:
+            return 0;
+        default: 
+            
+            break;
+    }   
+    cout << endl;
+    
+ }
+    return 0;
+}
 	}
 }
