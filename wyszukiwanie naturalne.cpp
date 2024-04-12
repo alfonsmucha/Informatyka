@@ -5,8 +5,8 @@ int main()
 {
     int tab[25] ={2, 3, 5, 7, 11, 2, 3, 5, 7, 11, 31, 37, 41, 43, 47, 2, 3, 5, 7, 11, 31, 37, 41, 43, 47};
     int liczby[25];
-    short szukana;
-    short index = 0;
+    int szukana;
+    int index = 0;
 
     cout << "Jaka liczbe poszukujesz: ";
     cin >> szukana;
